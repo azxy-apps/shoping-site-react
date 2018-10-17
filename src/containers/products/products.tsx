@@ -41,7 +41,7 @@ class Products extends React.Component<any, any>{
     }
 
     private callApi = async () => {
-        const response = await Axios.get('/products');        ;
+        const response = await Axios.get('/product');        ;
 
         if (response.status !== 200) {
             throw Error("Some error occured!!");
