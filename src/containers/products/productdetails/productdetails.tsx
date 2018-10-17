@@ -74,7 +74,7 @@ class ProductDetails extends React.Component<any, any>{
     }
 
     private getProductDetails = async () => {
-        const response = await axios.get('/api/product/' + this.props.productId);
+        const response = await axios.get('product/' + this.props.productId);
         if (response.status !== 200) {
             throw Error("Some error occured!!");
         }
@@ -82,7 +82,7 @@ class ProductDetails extends React.Component<any, any>{
     }
 
     private addProductDetails = async () => {
-        const response = await axios.post('/api/product', this.state.product);
+        const response = await axios.post('product', this.state.product);
         if (response.status !== 200) {
             throw Error("Some error occured!!");
         }
@@ -90,7 +90,7 @@ class ProductDetails extends React.Component<any, any>{
     }
 
     private updateProductDetails = async () => {
-        const response = await axios.put('/api/product/' + this.props.productId, this.state.product);
+        const response = await axios.put('product/' + this.props.productId, this.state.product);
         if (response.status !== 200) {
             throw Error("Some error occured!!");
         }
@@ -98,7 +98,7 @@ class ProductDetails extends React.Component<any, any>{
     }
 
     private deleteProduct = async () => {
-        const response = await axios.delete('/api/product/' + this.props.productId);
+        const response = await axios.delete('product/' + this.props.productId);
         if (response.status !== 200) {
             throw Error("Some error occured!!");
         }
