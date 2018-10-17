@@ -90,7 +90,7 @@ class ProductDetails extends React.Component<any, any>{
     }
 
     private updateProductDetails = async () => {
-        const response = await axios.put('product/' + this.props.productId, this.state.product);
+        const response = await axios.put('product', this.state.product);
         if (response.status !== 200) {
             throw Error("Some error occured!!");
         }
