@@ -74,35 +74,31 @@ class ProductDetails extends React.Component<any, any>{
     }
 
     private getProductDetails = async () => {
-        const response = await axios.get('product/' + this.props.productId);
-        if (response.status !== 200) {
-            throw Error("Some error occured!!");
+        const response = await axios.get('products/' + this.props.productId);
+        if (response.data && response.data.isSuccessful) {
+            this.setState({ product: response.data.result });
         }
-        this.setState({ product: response.data });
     }
 
     private addProductDetails = async () => {
-        const response = await axios.post('product', this.state.product);
-        if (response.status !== 200) {
-            throw Error("Some error occured!!");
+        const response = await axios.post('products', this.state.product);
+        if (response.data && response.data.isSuccessful) {
+            history.push('/products');
         }
-        history.push('/products');
     }
 
     private updateProductDetails = async () => {
-        const response = await axios.put('product', this.state.product);
-        if (response.status !== 200) {
-            throw Error("Some error occured!!");
+        const response = await axios.put('products', this.state.product);
+        if (response.data && response.data.isSuccessful) {
+            history.push('/products');
         }
-        history.push('/products');
     }
 
     private deleteProduct = async () => {
-        const response = await axios.delete('product/' + this.props.productId);
-        if (response.status !== 200) {
-            throw Error("Some error occured!!");
+        const response = await axios.delete('products/' + this.props.productId);
+        if (response.data && response.data.isSuccessful) {
+            history.push('/products');
         }
-        history.push('/products');
     }
 }
 
