@@ -1,21 +1,19 @@
 import * as React from 'react';
 import * as classes from './products.scss';
 import { NavLink } from 'react-router-dom';
-import {history} from 'src/store/store';
+import { history } from 'src/store/store';
 import Axios from 'axios';
 
 class Products extends React.Component<any, any>{
     public constructor(props) {
         super(props);
         this.state = {
-            response: []
+            products: []
         };
     }
 
     public componentDidMount() {
-        this.callApi()
-            .then(res => this.setState({ response: res }))
-            .catch(err => console.log(err));
+        this.getProductDetails();
     }
 
     public render() {
@@ -25,7 +23,7 @@ class Products extends React.Component<any, any>{
                     <div className={classes.header}>Products page</div>
                     <NavLink className={classes.link} to="/addproduct">Add Product</NavLink>
                 </div>
-                {this.state.response.map((x: any, i) => {
+                {this.state.products.map((x: any, i) => {
                     return (
                         <div onClick={() => this.openProductView(x._id)} className={classes.box} key={x._id}>
                             name: <span className={classes.link}>{x.name}</span></div>
@@ -40,13 +38,11 @@ class Products extends React.Component<any, any>{
         history.push('product/' + id);
     }
 
-    private callApi = async () => {
-        const response = await Axios.get('/product');        ;
-
-        if (response.status !== 200) {
-            throw Error("Some error occured!!");
+    private getProductDetails = async () => {
+        const response = await Axios.get('/products');;
+        if (response.data && response.data.isSuccessful) {
+            this.setState({ products: response.data.result });
         }
-        return response.data;
     };
 }
 
