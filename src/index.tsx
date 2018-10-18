@@ -14,8 +14,8 @@ import "!style-loader!css-loader!sass-loader!src/assets/styles/global.scss";
 
 import App from './containers/app/app';
 
-axios.defaults.baseURL = 'http://localhost:5000/api/';
-// axios.defaults.baseURL = 'https://shoping-site-dev.herokuapp.com/api/';
+// axios.defaults.baseURL = 'http://localhost:5000/api/';
+axios.defaults.baseURL = 'https://shoping-site-dev.herokuapp.com/api/';
 
 ReactDOM.render(
   <Provider store={store}>
