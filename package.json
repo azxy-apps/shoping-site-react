@@ -2,6 +2,7 @@
   "name": "shoping-site-react",
   "version": "1.0.0",
   "desciption": "UI for shopping site using react js.",
+  "proxy": "http://localhost:5000/api/",
   "cacheDirectories": [
     "node_modules"
   ],

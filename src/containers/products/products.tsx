@@ -23,6 +23,10 @@ class Products extends React.Component<any, any>{
                     <div className={classes.header}>Products page</div>
                     <NavLink className={classes.link} to="/addproduct">Add Product</NavLink>
                 </div>
+                <form action="/files" method="POST" encType="multipart/form-data">
+                    <input type="file" name="file" id="file"/>
+                    <input type="submit" value="Submit" />
+                </form>
                 {this.state.products.map((x: any, i) => {
                     return (
                         <div onClick={() => this.openProductView(x._id)} className={classes.box} key={x._id}>
