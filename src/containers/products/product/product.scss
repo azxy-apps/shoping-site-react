@@ -1,0 +1,9 @@
+@import 'src/assets/styles/variables.scss';
+.productContainer {
+    padding: 15px;
+    .product {
+        border: 1px solid $color-border-grey;
+        min-height: 100px;
+        padding: 20px;
+    }
+}

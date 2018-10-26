@@ -16,7 +16,7 @@ class App extends React.Component {
     return (
       <>
         <Layout />
-        <Route extact={true} path="/products" component={Products} />
+        <Route extact={true} path="/" component={Products} />
         <Route extact={true} path="/product/:id" component={ProductDetails} />
         <Route extact={true} path="/editproduct/:id" component={ProductDetails} />
         <Route extact={true} path="/addproduct" component={ProductDetails} />
