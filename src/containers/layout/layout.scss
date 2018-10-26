@@ -1,6 +1,26 @@
 @import 'src/assets/styles/variables.scss';
-.layout {
-    height: 100px;
-    width: 100%;
-    background: $color-primary;
+.topBanner {
+    background: $color-black-medium;
+    color: $color-white;
+    i {
+        font-size: $fontsize-xtra-large;
+    }
+    .linkButtons {
+        border: 1px solid $color-white;
+        i {
+            font-size: $fontsize-default;
+        }
+    }
+}
+
+.appName{
+    font-size: $fontsize-xtra-large;
+}
+
+.menuLink{
+    cursor: pointer;
+    &:hover{
+        color: $color-primary;
+        text-decoration: underline;
+    }
 }
